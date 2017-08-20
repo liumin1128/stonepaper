@@ -1,0 +1,98 @@
+.navbar-default{
+  background: none;
+  border: 0;
+}
+.factory-banner.win-height {
+  height: auto;
+}
+.factory-banner.win-height .img {
+  width: 100%;
+  height: auto !important;
+  min-height: 300px;
+}
+
+#header {
+  max-width: 1230px;
+  padding: 0 -50px;
+}
+
+.factory-banner .text-holder {
+  height: auto;
+  // background: rgba(0,0,0,0.3);
+  span {
+    margin-bottom: 0;
+    font-weight: 100;
+  }
+  h1 {
+    font-weight: 300;
+  }
+}
+.project {
+  padding-bottom: 100px;
+  background: #525763;
+  .blog-img {
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    padding: 15px;
+    img {
+      // width: 80%;
+      margin: 0 auto;
+    }
+  }
+  .blog-text {
+    p {
+      margin-top: 15px;
+      font-weight: 400;
+      color: #fff;
+    }
+  }
+}
+.my-contact {
+  background: #fff;
+  .text-holder h1,.text-holder em {
+    color: #333;
+  }
+  .logo_footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 180px;
+    }
+  }
+  .contact_info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px 0;
+  }
+}
+
+
+@media only screen and (max-width: 767px) {
+  .factory-banner .text-holder {
+    margin: 0;
+  }
+  .intro .left-intro {
+    margin: 0;
+    max-width: none;
+  }
+  .navbar-default .navbar-toggle {
+    border: none;
+  }
+  .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+    background: none;
+    span {
+      background: #fec24c;
+    }
+  }
+  #header .logo {
+    display: flex;
+    align-items: center;
+    img {
+      width: 100px;
+    }
+  }
+}
