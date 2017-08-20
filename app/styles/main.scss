@@ -4,11 +4,12 @@
 }
 .factory-banner.win-height {
   height: auto;
+  min-height: 500px;
+  background: red;
 }
 .factory-banner.win-height .img {
   width: 100%;
   height: auto !important;
-  min-height: 300px;
 }
 
 #header {
@@ -17,17 +18,25 @@
 }
 
 .factory-banner .text-holder {
-  height: auto;
-  // background: rgba(0,0,0,0.3);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto !important;
+  height: min-content;
   span {
     margin-bottom: 0;
     font-weight: 100;
   }
   h1 {
     font-weight: 300;
+    margin: 0;
     &:after {
       display: none;
     }
+  }
+  &::after,&::before {
+    display: none;
   }
 }
 .project {
@@ -75,6 +84,9 @@
 
 
 @media only screen and (max-width: 767px) {
+  #header {
+    top: 16px;
+  }
   .factory-banner .text-holder {
     margin: 0;
   }
@@ -84,6 +96,9 @@
   }
   .navbar-default .navbar-toggle {
     border: none;
+    .icon-bar {
+      background: #fff;
+    }
   }
   .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
     background: none;
