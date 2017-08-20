@@ -2,11 +2,11 @@
   background: none;
   border: 0;
 }
-.factory-banner.win-height {
-  height: auto;
-  min-height: 500px;
-  background: red;
-}
+// .factory-banner.win-height {
+//   .img {
+//     width: 100%;
+//   }
+// }
 .factory-banner.win-height .img {
   width: 100%;
   height: auto !important;
@@ -112,5 +112,21 @@
     img {
       width: 100px;
     }
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .factory-banner, .factory-banner.win-height{
+    height: auto;
+  }
+  .factory-banner.win-height .img {
+    width: 100%;
+    height: auto !important;
+    opacity: 0;
+  }
+  .factory-banner .item {
+    background-position: center center;
+    background-size: auto 100%;
+    min-height: 463px;
   }
 }
