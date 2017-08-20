@@ -45,5 +45,8 @@
         "single"
       ]
     }
+  },
+  "dependencies": {
+    "gulp-imagemin": "^3.3.0"
   }
 }

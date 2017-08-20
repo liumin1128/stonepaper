@@ -2,11 +2,9 @@
   background: none;
   border: 0;
 }
-// .factory-banner.win-height {
-//   .img {
-//     width: 100%;
-//   }
-// }
+.factory-banner.win-height {
+  height: auto;
+}
 .factory-banner.win-height .img {
   width: 100%;
   height: auto !important;

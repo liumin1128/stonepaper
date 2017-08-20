@@ -5,11 +5,28 @@ const browserSync = require('browser-sync').create();
 const del = require('del');
 const wiredep = require('wiredep').stream;
 const runSequence = require('run-sequence');
+const imagemin = require('gulp-imagemin');
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 
 let dev = true;
+
+gulp.task('imagemin', function () {
+  gulp.src('app/images/**/*.{png,jpg,gif,ico}')
+    .pipe(imagemin({
+      optimizationLevel: 5, //类型：Number  默认：3  取值范围：0-7（优化等级）
+      progressive: true, //类型：Boolean 默认：false 无损压缩jpg图片
+      interlaced: true, //类型：Boolean 默认：false 隔行扫描gif进行渲染
+      multipass: true //类型：Boolean 默认：false 多次优化svg直到完全优化
+    }))
+    .pipe(gulp.dest('dist/images'));
+});
+
+gulp.task('copy',  function() {
+  return gulp.src('app/styles/*.css')
+    .pipe(gulp.dest('dist/styles'))
+});
 
 gulp.task('styles', () => {
   return gulp.src('app/styles/*.scss')
@@ -73,7 +90,14 @@ gulp.task('html', ['styles', 'scripts'], () => {
 
 gulp.task('images', () => {
   return gulp.src('app/images/**/*')
-    .pipe($.cache($.imagemin()))
+    .pipe($.cache($.imagemin(
+      {
+        optimizationLevel: 5, //类型：Number  默认：3  取值范围：0-7（优化等级）
+        progressive: true, //类型：Boolean 默认：false 无损压缩jpg图片
+        interlaced: true, //类型：Boolean 默认：false 隔行扫描gif进行渲染
+        multipass: true //类型：Boolean 默认：false 多次优化svg直到完全优化
+      }
+    )))
     .pipe(gulp.dest('dist/images'));
 });
 
@@ -166,7 +190,7 @@ gulp.task('wiredep', () => {
     .pipe(gulp.dest('app'));
 });
 
-gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
+gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras', 'copy'], () => {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
